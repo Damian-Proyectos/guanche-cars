@@ -28,3 +28,8 @@ app.use('/api/vehicles', vehicleRoutes);
 app.listen(PORT, () => {
     console.log(`🚀 Servidor corriendo en el puerto http://localhost:${PORT}`);
 });
+// Importar rutas de consultas
+const inquiryRoutes = require('./routes/inquiryRoutes');
+
+// Usar rutas
+app.use('/api/inquiries', inquiryRoutes);

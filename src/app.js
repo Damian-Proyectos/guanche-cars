@@ -33,3 +33,6 @@ const inquiryRoutes = require('./routes/inquiryRoutes');
 
 // Usar rutas
 app.use('/api/inquiries', inquiryRoutes);
+
+const statsRoutes = require('./routes/statsRoutes');
+app.use('/api/stats', statsRoutes);

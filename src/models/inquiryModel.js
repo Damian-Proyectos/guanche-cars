@@ -24,3 +24,12 @@ const Inquiry = {
 };
 
 module.exports = Inquiry;
+
+// Actualizar el estado de una solicitud por su ID
+updateStatus: async (id, status) => {
+    const [result] = await db.query(
+        'UPDATE inquiries SET status = ? WHERE id = ?',
+        [status, id]
+    );
+    return result.affectedRows; // Devuelve cuántas filas se han modificado
+}

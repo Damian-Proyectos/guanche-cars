@@ -7,3 +7,5 @@ router.get('/', inquiryController.getAllInquiries);
 router.post('/', inquiryController.createInquiry);
 
 module.exports = router;
+
+router.patch('/:id/status', inquiryController.updateInquiryStatus);

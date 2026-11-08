@@ -20,13 +20,10 @@ const createInquiry = async (req, res) => {
     }
 };
 
-module.exports = {
-    getAllInquiries,
-    createInquiry
-};
+// Actualizar el estado de una solicitud por su ID
 const updateInquiryStatus = async (req, res) => {
     try {
-        const { id } = req.params;     // Cogemos el ID de la URL (ej: /api/inquiries/5)
+        const { id } = req.params;     // Cogemos el ID de la URL (ej: /api/inquiries/5/status)
         const { status } = req.body;   // Cogemos el nuevo estado del cuerpo de la petición
 
         // Llamamos al modelo para que actualice la base de datos
@@ -40,4 +37,10 @@ const updateInquiryStatus = async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Error al actualizar el estado', details: error.message });
     }
+};
+
+module.exports = {
+    getAllInquiries,
+    createInquiry,
+    updateInquiryStatus
 };

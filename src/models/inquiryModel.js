@@ -20,16 +20,16 @@ const Inquiry = {
             [vehicle_id || null, name, email, phone || null, message]
         );
         return result.insertId;
+    },
+
+    // Actualizar el estado de una solicitud por su ID
+    updateStatus: async (id, status) => {
+        const [result] = await db.query(
+            'UPDATE inquiries SET status = ? WHERE id = ?',
+            [status, id]
+        );
+        return result.affectedRows; // Devuelve cuántas filas se han modificado
     }
 };
 
 module.exports = Inquiry;
-
-// Actualizar el estado de una solicitud por su ID
-updateStatus: async (id, status) => {
-    const [result] = await db.query(
-        'UPDATE inquiries SET status = ? WHERE id = ?',
-        [status, id]
-    );
-    return result.affectedRows; // Devuelve cuántas filas se han modificado
-}
